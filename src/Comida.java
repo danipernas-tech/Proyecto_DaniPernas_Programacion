@@ -25,7 +25,7 @@ public class Comida extends Producto {
         if (Caliente) {
             temperatura = "caliente";
         } else {
-            temperatura = "frío/a";
+            temperatura = "frío";
         }
         return getNombre() + " " + temperatura + " - " + String.format("%.2f", getPrecio()) + " €";
     }
