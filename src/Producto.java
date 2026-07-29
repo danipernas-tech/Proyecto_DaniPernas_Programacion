@@ -1,4 +1,4 @@
-public class Producto {
+public class Producto implements Descontable {
 
     //ATRIBUTOS
     //Declaramos los atributos y los ponemos en private para que solo se pueda tocar desde la clase (encapsulación)
@@ -44,6 +44,17 @@ public class Producto {
     //SETTER de categoria
     public void setCategoria(String categoria) {
         this.categoria = categoria;
+    }
+
+
+    @Override
+    public double aplicarDescuento(double porcentaje) {
+        if (porcentaje <0 || porcentaje > 100) {
+            System.out.println("Porcentaje de descuento incorrecto, no se le aplica");
+            return precio;
+        }
+        double descuento = precio * porcentaje / 100;
+        return precio - descuento;
     }
 
     //Con el override sobrescribimos el toString() y lo mostramos con los datos de los productos
