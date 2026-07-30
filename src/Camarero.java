@@ -10,7 +10,6 @@ public class Camarero {
         this.codigoEmpleado = codigoEmpleado;
     }
 
-
     public String getNombre() {
         return nombre;
     }
