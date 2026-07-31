@@ -2,33 +2,39 @@ public class Main {
 
     static void main() {
 
-        //Productos
-        Producto generico = new Producto("Servilletas", 0.50, "Otros");
+        //Creamos el cliente
+        Cliente cliente = new Cliente("Ana López", "600123456", 25);
+
+        //Creamos el camarero
+        Camarero camarero = new Camarero("Carlos", "C01");
+
+        //Creamos varios productos
         Bebida cafe = new Bebida("Café", 1.80, "mediano");
         Comida bocadillo = new Comida("Bocadillo", 3.50, true);
+        Bebida zumo = new Bebida("Zumo", 2.20, "grande");
 
-        System.out.println("\n---PRODUCTOS---");
-        System.out.println(generico);
-        System.out.println(cafe);
-        System.out.println(bocadillo);
+        //Creamos el ticket con su cliente y camarero
+        Ticket ticket = new Ticket(cliente, camarero);
 
-        System.out.println("\n---DESCUENTO---");
-        System.out.println("Precio del café: " + cafe.getPrecio() + " €");
-        System.out.println("Con 10% descuento: " + cafe.aplicarDescuento(10) + " €");
+        //Añadimos los productos al ticket
+        ticket.agregarProducto(cafe);
+        ticket.agregarProducto(bocadillo);
+        ticket.agregarProducto(zumo);
 
-        System.out.println("Con 25% descuento: " + cafe.aplicarDescuento(25) + " €");
+        //Enseñamos el ticket completo + total
+        ticket.mostrarTicket();
 
-        //Personas
-        System.out.println("\n---PERSONAS---");
-        Cliente cliente = new Cliente("Dani Pernas", "600123456", 23);
-        Camarero camarero = new Camarero("Silvia Benito", "C01");
-        Cliente clienteJoven = new Cliente("Leo", "698653001", 16);
+        //Aplicamos un descuento usando la interfaz Descontable
+        System.out.println();
+        Descontable productoDescontable = cafe;   // el café se trata como Descontable
+        double porcentaje = 10;
+        double precioConDescuento = productoDescontable.aplicarDescuento(porcentaje);
 
-        System.out.println(cliente);
-        System.out.println(camarero);
-        System.out.println(clienteJoven);
+        System.out.println("Descuento aplicado al café: " + (int) porcentaje + "%");
+        System.out.println("Precio final del café: " + String.format("%.2f", precioConDescuento) + " €");
+    }
 
 
 
     }
-}
+
