@@ -1,12 +1,12 @@
 public class Ticket {
 
-    //Ticket
+    //Ticket: contiene un cliente, un camarero y un array de productos
     private Cliente cliente;
     private Camarero camarero;
     private Producto[] productos;
     private int contadorProductos;
 
-    // Constructor
+    //Constructor
     public Ticket(Cliente cliente, Camarero camarero) {
         this.cliente = cliente;
         this.camarero = camarero;
@@ -14,7 +14,7 @@ public class Ticket {
         this.contadorProductos = 0;
     }
 
-    // Getters
+    //Getters
     public Cliente getCliente() {
         return cliente;
     }
@@ -27,8 +27,8 @@ public class Ticket {
         return contadorProductos;
     }
 
-    // Añade un producto al ticket si hay hueco
-    // Devuelve true si lo añadió, false si no pudo por espacio
+    //Añade un producto al ticket si hay hueco
+    //Devuelve true si lo añadió, false si no pudo por espacio
     public boolean agregarProducto(Producto producto) {
         if (producto == null) {
             System.out.println("No se puede añadir un producto vacío");

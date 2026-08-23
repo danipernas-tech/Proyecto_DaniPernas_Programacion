@@ -26,7 +26,7 @@ public class Main {
 
         //Aplicamos un descuento usando la interfaz Descontable
         System.out.println();
-        Descontable productoDescontable = cafe;   // el café se trata como Descontable
+        Descontable productoDescontable = cafe;   //El café es descontable
         double porcentaje = 10;
         double precioConDescuento = productoDescontable.aplicarDescuento(porcentaje);
 
